@@ -1,50 +1,149 @@
-body {
-    background-image: url("yarn.jpeg");
-    background-size: cover;
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    height: 100vh;
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-    background: white;
-    max-width: 80%;
-    margin: auto;
-    border: 3px solid black;
-    border-radius: 10px;
+body {
+    background-image: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+    overflow: hidden;
+}
+
+#component {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 90%;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    transform: scale(0.9);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 h1 {
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 2rem;
+    opacity: 0;
+    animation: slideUp 1.5s ease-out forwards;
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 3rem;
     margin-top: 0;
     margin-bottom: 20px;
+    opacity: 0;
+    animation: slideUp 1.7s ease-out forwards;
 }
 
 button {
-    border: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    border: none;
+    padding: 15px;
     color: white;
     font-weight: bold;
-    width: 200px;
-    margin-bottom: 5px;
+    width: 100%;
+    margin-bottom: 10px;
     border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    animation: slideUp 1.9s ease-out forwards;
+}
+
+button:hover {
+    transform: translateY(-3px);
 }
 
 #increment-btn {
-    background: #2C2891;
+    background: #ff4c4c;
+}
+
+#increment-btn:hover {
+    background: #e63946;
 }
 
 #save-btn {
-    background: #1C7947;
+    background: #1d3557;
+}
+
+#save-btn:hover {
+    background: #457b9d;
 }
 
 #save-el {
-    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 20px;
+    word-wrap: break-word;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
 }
 
+@media (min-width: 768px) {
+    #component {
+        max-width: 500px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    button {
+        width: 80%;
+        font-size: 1.2rem;
+    }
+
+    #save-el {
+        font-size: 1.2rem;
+    }
+}
+
+/* Keyframes for sliding up animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Updated slideIn keyframes for sliding up from the bottom */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
